@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useSahyog } from '../context/SahyogContext';
 import { 
   UploadCloud, Loader2, Image as ImageIcon, CheckCircle, 
@@ -89,7 +89,6 @@ const uiText = {
 };
 
 export default function Citizen() {
-  const navigate = useNavigate();
   const { addChallenge } = useSahyog();
   
   const [mode, setMode] = useState<'form' | 'voice'>('form');
@@ -152,7 +151,8 @@ export default function Citizen() {
   }, [botState, mode, lang]);
 
   const startListening = () => {
-    const SpeechRecognition = window.SpeechRecognition || (window as any).webkitSpeechRecognition;
+    // @ts-ignore
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
       alert("Speech recognition is not supported in your browser.");
       return;
@@ -214,7 +214,7 @@ export default function Citizen() {
   };
 
   useEffect(() => {
-    let timers: NodeJS.Timeout[] = [];
+    let timers: ReturnType<typeof setTimeout>[] = [];
     if (isSubmitting) {
       setLoadingStep(0);
       timers.push(setTimeout(() => setLoadingStep(1), 2000));

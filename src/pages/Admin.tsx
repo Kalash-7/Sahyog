@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSahyog } from '../context/SahyogContext';
 import { Shield, CheckCircle, BrainCircuit, Building, ArrowRight, Activity, MapPin, DatabaseBackup, Database, Landmark, Users, Briefcase } from 'lucide-react';
 import { RANCHI_BLOCKS, REGISTERED_UNIVERSITIES, INDUSTRY_PARTNERS } from '../data/ranchiDatasets';

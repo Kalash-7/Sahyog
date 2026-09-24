@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import { db } from '../lib/firebase';
 import { collection, onSnapshot, addDoc, updateDoc, doc, writeBatch } from 'firebase/firestore';
 import { SEED_CHALLENGES } from '../data/ranchiDatasets';
@@ -22,6 +22,9 @@ export interface Challenge {
     duplicate_flag: boolean;
     recommended_uni: string;
     match_reason: string;
+    duplicate_count?: number;
+    merged_reports?: string[];
+    uni_pov_reason?: string;
   };
 }
 

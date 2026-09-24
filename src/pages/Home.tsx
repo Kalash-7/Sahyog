@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { Users, ShieldCheck, GraduationCap, Briefcase, ArrowRight, Sparkles } from 'lucide-react';
 
